@@ -9,34 +9,8 @@
                     {{ getDeviceName($root.$data.product) }} is now running
                     {{ $root.$data.OS_NAME }} {{ $root.$data.release.version }}.
                 </p>
-                <p>
-                    If you like {{ $root.$data.OS_NAME }}, please consider
-                    donating to support development and cover maintenance costs:
-                </p>
+                <p><strong>Enjoy!</strong></p>
             </div>
-        </div>
-
-        <div class="d-flex flex-wrap justify-space-around">
-            <v-card
-                v-for="donation in $root.$data.DONATION_LINKS"
-                :key="donation.url"
-                outlined
-                max-width="16rem"
-                class="ma-4 d-flex flex-column"
-                ripple
-                :href="donation.url"
-                target="_blank"
-                :class="donation.highlight ? 'v-card--p-highlight' : null"
-            >
-                <v-card-title>
-                    <div class="pr-2">
-                        <liberapay-icon v-if="donation.icon === 'liberapay'" />
-                        <paypal-icon v-if="donation.icon === 'paypal'" />
-                    </div>
-                    {{ donation.title }}</v-card-title
-                >
-                <v-card-subtitle>{{ donation.description }} </v-card-subtitle>
-            </v-card>
         </div>
 
         <div class="d-flex justify-space-between">
@@ -56,12 +30,9 @@
 </style>
 
 <script>
-import LiberapayIcon from "./LiberapayIcon.vue";
-import PaypalIcon from "./PaypalIcon.vue";
 import { getDeviceName } from "../core/devices";
 
 export default {
-    components: { LiberapayIcon, PaypalIcon },
     name: "FinishStep",
 
     props: ["device", "blobStore", "active"],
